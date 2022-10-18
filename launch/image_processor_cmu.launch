@@ -23,9 +23,9 @@
       <param name="ransac_threshold" value="3"/>
       <param name="stereo_threshold" value="5"/>
 
-      <remap from="~imu" to="/imu0"/>
-      <remap from="~cam0_image" to="/cam0/image_raw"/>
-      <remap from="~cam1_image" to="/cam1/image_raw"/>
+      <remap from="~imu" to="/vectornav/IMU"/>
+      <remap from="~cam0_image" to="/left/camera/image_color"/>
+      <remap from="~cam1_image" to="/right/camera/image_color"/>
 
     </node>
   </group>
