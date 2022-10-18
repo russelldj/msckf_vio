@@ -2,7 +2,7 @@
 
   <arg name="robot" default="firefly_sbx"/>
   <arg name="calibration_file"
-    default="$(find msckf_vio)/config/camchain-imucam-cmu-fullframe.yaml"/>
+    default="$(find msckf_vio)/config/camchain-imucam-cmu.yaml"/>
 
   <!-- Image Processor Nodelet  -->
   <group ns="$(arg robot)">
@@ -23,9 +23,9 @@
       <param name="ransac_threshold" value="3"/>
       <param name="stereo_threshold" value="5"/>
 
-      <remap from="/vectornav/IMU" to="/imu0"/>
-      <remap from="/left/camera/image_raw" to="/cam0/image_raw"/>
-      <remap from="/right/camera/image_raw" to="/cam1/image_raw"/>
+      <remap from="~imu" to="/imu0"/>
+      <remap from="~cam0_image" to="/cam0/image_raw"/>
+      <remap from="~cam1_image" to="/cam1/image_raw"/>
 
     </node>
   </group>
