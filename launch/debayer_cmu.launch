@@ -1,6 +1,8 @@
- <group ns="right" >
-      <node pkg="image_proc" type="image_proc" name="right_image_proc" output="screen" />
-</group>
-<group ns="left" >
-      <node pkg="image_proc" type="image_proc" name="left_image_proc" output="screen" />
-</group>
+<launch>
+    <group ns="right/camera">
+        <node pkg="image_proc" type="image_proc" name="right_image_proc" output="screen" />
+    </group>
+    <group ns="left/camera">
+        <node pkg="image_proc" type="image_proc" name="left_image_proc" output="screen" />
+    </group>
+</launch>
