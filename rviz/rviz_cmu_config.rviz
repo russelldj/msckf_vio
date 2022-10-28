@@ -253,7 +253,7 @@ Visualization Manager:
       Value: false
     - Class: rviz/Image
       Enabled: true
-      Image Topic: /right/camera/image_mono
+      Image Topic: /right/camera/image_rect
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -265,7 +265,7 @@ Visualization Manager:
       Value: true
     - Class: rviz/Image
       Enabled: true
-      Image Topic: /right/camera/image_mono
+      Image Topic: /left/camera/image_rect
       Max Value: 1
       Median window: 5
       Min Value: 0

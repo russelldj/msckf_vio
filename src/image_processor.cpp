@@ -184,6 +184,8 @@ bool ImageProcessor::createRosIO() {
 
   cam0_img_sub.subscribe(nh, "cam0_image", 10);
   cam1_img_sub.subscribe(nh, "cam1_image", 10);
+  // Allowed slop in seconds
+  stereo_sub.setMaxIntervalDuration(0.01);
   stereo_sub.connectInput(cam0_img_sub, cam1_img_sub);
   stereo_sub.registerCallback(&ImageProcessor::stereoCallback, this);
   imu_sub = nh.subscribe("imu", 50,
