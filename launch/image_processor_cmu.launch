@@ -24,8 +24,8 @@
       <param name="stereo_threshold" value="5"/>
 
       <remap from="~imu" to="/vectornav/IMU"/>
-      <remap from="~cam0_image" to="/left/camera/image_color"/>
-      <remap from="~cam1_image" to="/right/camera/image_color"/>
+      <remap from="~cam0_image" to="/left/camera/image_mono"/>
+      <remap from="~cam1_image" to="/right/camera/image_mono"/>
 
     </node>
   </group>

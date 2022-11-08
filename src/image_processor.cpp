@@ -27,7 +27,7 @@ ImageProcessor::ImageProcessor(ros::NodeHandle& n) :
   nh(n),
   is_first_img(true),
   //img_transport(n),
-  stereo_sub(10),
+  stereo_sub(StereoSyncPolicy(10)),
   prev_features_ptr(new GridFeatures()),
   curr_features_ptr(new GridFeatures()) {
   return;

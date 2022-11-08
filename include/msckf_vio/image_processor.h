@@ -21,6 +21,8 @@
 #include <sensor_msgs/Image.h>
 #include <message_filters/subscriber.h>
 #include <message_filters/time_synchronizer.h>
+#include <message_filters/synchronizer.h>
+#include <message_filters/sync_policies/approximate_time.h>
 
 namespace msckf_vio {
 
@@ -377,8 +379,11 @@ private:
     sensor_msgs::Image> cam0_img_sub;
   message_filters::Subscriber<
     sensor_msgs::Image> cam1_img_sub;
-  message_filters::TimeSynchronizer<
-    sensor_msgs::Image, sensor_msgs::Image> stereo_sub;
+  // message_filters::TimeSynchronizer<
+  //   sensor_msgs::Image, sensor_msgs::Image> stereo_sub;
+  typedef message_filters::sync_policies::ApproximateTime<
+      sensor_msgs::Image, sensor_msgs::Image> StereoSyncPolicy;
+  message_filters::Synchronizer<StereoSyncPolicy> stereo_sub;
   ros::Subscriber imu_sub;
   ros::Publisher feature_pub;
   ros::Publisher tracking_info_pub;

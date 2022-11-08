@@ -240,6 +240,7 @@ void MsckfVio::imuCallback(
     //if (imu_msg_buffer.size() < 10) return;
     initializeGravityAndBias();
     is_gravity_set = true;
+    ROS_INFO("Gravity initialized from buffered IMU data");
   }
 
   return;
