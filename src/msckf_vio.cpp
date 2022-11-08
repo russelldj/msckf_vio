@@ -1057,6 +1057,7 @@ void MsckfVio::removeLostFeatures() {
     if (feature.observations.find(state_server.imu_state.id) !=
         feature.observations.end()) continue;
     if (feature.observations.size() < 3) {
+      ROS_WARN("REMOVING FEATURE %d DUE TO TOO FEW OBSERVATIONS AND NOT TRACKED", (int) feature.id);
       invalid_feature_ids.push_back(feature.id);
       continue;
     }
