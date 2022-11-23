@@ -1,8 +1,25 @@
 <launch>
     <group ns="right/camera">
         <node pkg="image_proc" type="image_proc" name="right_image_proc" output="screen" />
+
+        <node name="resized" pkg="nodelet" type="nodelet"
+        args="standalone image_proc/resize"
+        output="screen">
+          <remap from="image" to="/right/camera/image_mono" />
+          <param name="scale_width" value="0.25" />
+          <param name="scale_height" value="0.25" />
+        </node>
     </group>
     <group ns="left/camera">
         <node pkg="image_proc" type="image_proc" name="left_image_proc" output="screen" />
+
+        <node name="resized" pkg="nodelet" type="nodelet"
+        args="standalone image_proc/resize"
+        output="screen">
+          <remap from="image" to="/left/camera/image_mono" />
+          <param name="scale_width" value="0.25" />
+          <param name="scale_height" value="0.25" />
+        </node>
     </group>
+
 </launch>

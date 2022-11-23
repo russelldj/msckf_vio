@@ -2,7 +2,7 @@
   <arg name="robot" default="firefly_sbx"/>
   <arg name="fixed_frame_id" default="world"/>
   <arg name="calibration_file"
-    default="$(find msckf_vio)/config/camchain-imucam-cmu-fullframe.yaml"/>
+    default="$(find msckf_vio)/config/camchain-imucam-cmu-fullframe-quarter-scale.yaml"/>
   <!-- Debayering Nodelet  -->
   <include file="$(find msckf_vio)/launch/debayer_cmu.launch"></include>
   <!-- Image Processor Nodelet  -->
