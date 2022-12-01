@@ -11,6 +11,8 @@
     <arg name="calibration_file" value="$(arg calibration_file)"/>
   </include>
 
+  <node name="ned2enu" pkg="ned_enu_tf" type="ned2enu"/>
+
   <!-- Msckf Vio Nodelet  -->
   <group ns="$(arg robot)">
     <node pkg="nodelet" type="nodelet" name="vio"
@@ -52,7 +54,7 @@
       <param name="initial_covariance/extrinsic_rotation_cov" value="3.0462e-4"/>
       <param name="initial_covariance/extrinsic_translation_cov" value="2.5e-5"/>
 
-      <remap from="~imu" to="/vectornav/IMU"/>
+      <remap from="~imu" to="/vectornav/imu_enu"/>
       <remap from="~features" to="image_processor/features"/>
 
     </node>

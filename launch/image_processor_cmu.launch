@@ -23,7 +23,7 @@
       <param name="ransac_threshold" value="3"/>
       <param name="stereo_threshold" value="5"/>
 
-      <remap from="~imu" to="/vectornav/IMU"/>
+      <remap from="~imu" to="/vectornav/imu_enu"/>
       <remap from="~cam0_image" to="/left/camera/resized/image"/>
       <remap from="~cam1_image" to="/right/camera/resized/image"/>
 
