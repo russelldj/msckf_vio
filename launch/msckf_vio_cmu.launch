@@ -2,7 +2,7 @@
   <arg name="robot" default="firefly_sbx"/>
   <arg name="fixed_frame_id" default="world"/>
   <arg name="calibration_file"
-    default="$(find msckf_vio)/config/camchain-imucam-cmu-fullframe.yaml"/>
+    default="$(find msckf_vio)/config/camchain-imucam-cmu-fullframe-quarter-scale.yaml"/>
   <!-- Debayering Nodelet  -->
   <include file="$(find msckf_vio)/launch/debayer_cmu.launch"></include>
   <!-- Image Processor Nodelet  -->
@@ -10,6 +10,8 @@
     <arg name="robot" value="$(arg robot)"/>
     <arg name="calibration_file" value="$(arg calibration_file)"/>
   </include>
+
+  <node name="ned2enu" pkg="ned_enu_tf" type="ned2enu"/>
 
   <!-- Msckf Vio Nodelet  -->
   <group ns="$(arg robot)">
@@ -52,7 +54,7 @@
       <param name="initial_covariance/extrinsic_rotation_cov" value="3.0462e-4"/>
       <param name="initial_covariance/extrinsic_translation_cov" value="2.5e-5"/>
 
-      <remap from="~imu" to="/vectornav/IMU"/>
+      <remap from="~imu" to="/vectornav/imu_enu"/>
       <remap from="~features" to="image_processor/features"/>
 
     </node>
