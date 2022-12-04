@@ -12,6 +12,7 @@
   </include>
 
   <node name="ned2enu" pkg="ned_enu_tf" type="ned2enu"/>
+  <node name="save_odom" pkg="msckf_vio" type="save_odom.py"/>
 
   <!-- Msckf Vio Nodelet  -->
   <group ns="$(arg robot)">

@@ -12,6 +12,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  rospy
   std_msgs
   tf
   nav_msgs
@@ -136,6 +137,11 @@ target_link_libraries(image_processor_nodelet
 #############
 ## Install ##
 #############
+
+
+catkin_install_python(PROGRAMS scripts/save_odom.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 install(TARGETS
   msckf_vio msckf_vio_nodelet image_processor image_processor_nodelet
