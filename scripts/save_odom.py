@@ -5,7 +5,7 @@ import rospy
 import time
 
 
-FILENAME = "/root/data/results/odom_{}.npy".format(int(time.time() * 1e6))
+FILENAME = "/root/data/results/odom_{}.txt".format(int(time.time() * 1e6))
 POSES = []
 
 
@@ -34,7 +34,7 @@ def listener():
     rospy.Subscriber("/firefly_sbx/vio/odom", Odometry, callback)
     rospy.spin()
     poses = numpy.array(POSES)
-    numpy.save(FILENAME, poses)
+    numpy.savetxt(FILENAME, poses[:,:8], header="timestamp tx ty tz qx qy qz qw")
 
 
 if __name__ == "__main__":
