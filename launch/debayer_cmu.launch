@@ -1,5 +1,5 @@
 <launch>
-    <arg name="downsample" default="1" />
+    <arg name="downsample"/>
     <group ns="right/camera">
         <node pkg="image_proc" type="image_proc" name="right_image_proc" output="screen" />
 
