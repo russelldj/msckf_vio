@@ -1,8 +1,7 @@
 <launch>
 
   <arg name="robot" default="firefly_sbx"/>
-  <arg name="calibration_file"
-    default="$(find msckf_vio)/config/camchain-imucam-cmu-fullframe.yaml"/>
+  <arg name="calibration_file"/>
 
   <!-- Image Processor Nodelet  -->
   <group ns="$(arg robot)">

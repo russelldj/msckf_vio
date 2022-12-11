@@ -1,4 +1,5 @@
 <launch>
+    <arg name="downsample" default="1" />
     <group ns="right/camera">
         <node pkg="image_proc" type="image_proc" name="right_image_proc" output="screen" />
 
@@ -6,8 +7,8 @@
         args="standalone image_proc/resize"
         output="screen">
           <remap from="image" to="/right/camera/image_mono" />
-          <param name="scale_width" value="0.25" />
-          <param name="scale_height" value="0.25" />
+          <param name="scale_width" value="$(arg downsample)" />
+          <param name="scale_height" value="$(arg downsample)" />
         </node>
     </group>
     <group ns="left/camera">
@@ -17,8 +18,8 @@
         args="standalone image_proc/resize"
         output="screen">
           <remap from="image" to="/left/camera/image_mono" />
-          <param name="scale_width" value="0.25" />
-          <param name="scale_height" value="0.25" />
+          <param name="scale_width" value="$(arg downsample)" />
+          <param name="scale_height" value="$(arg downsample)" />
         </node>
     </group>
 
