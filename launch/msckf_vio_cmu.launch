@@ -4,7 +4,7 @@
   <arg name="calibration_file"
     default="$(find msckf_vio)/config/camchain-imucam-cmu-fullframe-half-scale.yaml"/>
   <arg name="downsample"
-    default="0.5"/>
+    default="0.25"/>
   <!-- Debayering Nodelet  -->
   <include file="$(find msckf_vio)/launch/debayer_cmu.launch">
     <arg name="downsample" value="$(arg downsample)"/>
